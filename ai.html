@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dad Joke Generator</title>
+  <link rel="stylesheet" href="aistyle.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Dad Joke Generator</h1>
+    
+    <div id="joke-setup" class="joke-text">Click the button for a dad joke!</div>
+    <div id="joke-punchline" class="joke-text hidden"></div>
+    
+    <div class="buttons">
+      <button id="joke-btn" class="joke-button">🎤 Tell Me a Joke</button>
+      <button id="answer-btn" class="answer-button hidden">🤣 Show Answer</button>
+    </div>
+  </div>
+
+  <script>
+    const jokes = [
+      { setup: "Why don't eggs tell jokes?", punchline: "They'd crack each other up." },
+      { setup: "What time did the man go to the dentist?", punchline: "Tooth hurt-y." },
+      { setup: "I only know 25 letters of the alphabet.", punchline: "I don't know y." },
+      { setup: "Why did the scarecrow win an award?", punchline: "Because he was outstanding in his field." },
+      { setup: "What do you call fake spaghetti?", punchline: "An impasta." },
+      { setup: "Why don't skeletons fight each other?", punchline: "They don't have the guts." },
+      { setup: "How does a penguin build its house?", punchline: "Igloos it together." },
+      { setup: "Why did the math book look sad?", punchline: "Because it had too many problems." },
+      { setup: "Dad, can you put my shoes on?", punchline: "No, I don’t think they’ll fit me." },
+      { setup: "I used to play piano by ear,", punchline: "but now I use my hands." }
+    ];
+
+    const setupEl = document.getElementById('joke-setup');
+    const punchlineEl = document.getElementById('joke-punchline');
+    const jokeBtn = document.getElementById('joke-btn');
+    const answerBtn = document.getElementById('answer-btn');
+
+    let currentJoke = null;
+
+    jokeBtn.addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * jokes.length);
+      currentJoke = jokes[randomIndex];
+      
+      setupEl.textContent = currentJoke.setup;
+      punchlineEl.textContent = '';
+      punchlineEl.classList.add('hidden');
+      answerBtn.classList.remove('hidden');
+    });
+
+    answerBtn.addEventListener('click', () => {
+      if (currentJoke) {
+        punchlineEl.textContent = currentJoke.punchline;
+        punchlineEl.classList.remove('hidden');
+        answerBtn.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

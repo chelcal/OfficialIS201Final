@@ -1,0 +1,35 @@
+/* Style Definitions */
+
+body {
+    background-color: aliceblue;
+}
+
+/* Font Color + Style */
+h1 {
+    color: rgb(4, 87, 138);
+    font-style: oblique;
+}
+
+h3 {
+    color: rgb(26, 173, 231);
+    font-style: italic;
+}
+
+ol {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: normal;
+}
+
+a {
+    font-size: larger;
+    font-style: normal;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* Div Styling for Layout (optional enhancements) */
+#header, #content, #footer {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
